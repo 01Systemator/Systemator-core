@@ -4,6 +4,23 @@ Systemator Core is a minimal, Git-backed space for an owner's persistent context
 
 This repository contains the shared instructions, standard private layout and data format for **Systemator Core v1.0.0**, the first stable public release. It contains no owner's records, credentials, or instance identity. Systemator Core is open source under the [MIT License](LICENSE). The immutable release tag identifies the accepted engine commit; each private instance pins that exact commit separately.
 
+## Start here
+
+Systemator Core is designed to work through an AI model, agent, or application connected to an AI model. You normally do not need to perform the full setup manually: if your AI interface has an authorized Git adapter, ask it to read this repository and guide or perform the setup of your private Core instance. This document is intentionally detailed because it defines the standard steps and safety rules, not because installation is inherently difficult. If your AI interface cannot access Git, you can still follow the manual setup guide step by step.
+
+### Recommended setup
+
+1. Choose an AI interface with an authorized Git adapter.
+2. Give it this repository and ask it to set up a private Systemator Core instance.
+3. Follow only the actions that require your confirmation or direct access.
+4. Let the AI verify the created files by reading them back.
+
+For example, ChatGPT with an enabled GitHub connection can read this public repository, explain the required steps, and work with your private instance when you provide authorized access to it. An AI interface without Git access can still explain the setup, but it cannot create or modify the private repository on your behalf.
+
+### Manual setup
+
+If no suitable AI interface or Git adapter is available, use the [manual local Git setup guide](docs/manual-setup.md).
+
 ## Connect an AI interface
 
 **An entry instruction is required.** An AI model, agent, chat or other interface cannot infer which private instance belongs to you just from this public repository. Tell it where the shared Core rules are, where **your** data is, which Git adapter it may use, and what it may read and write. Without that binding, the interface is not connected to your Core instance. Keep the actual records in your private repository, not in the instruction text or chat history.
