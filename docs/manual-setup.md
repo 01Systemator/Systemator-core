@@ -17,7 +17,7 @@ Keep the generated UUID as this instance's `instance_id`. If Python is unavailab
 
 ## 2. Choose and pin the engine
 
-Choose one exact full commit SHA from `01Systemator/Systemator-core`. A published stable release tag is the preferred source once one exists. Until the first stable release is published, `main` is a changing pilot branch: if you choose a pilot commit, record the full SHA and treat your instance as a pilot.
+Choose the accepted stable tag `v1.0.0` from `01Systemator/Systemator-core` and verify its exact full commit SHA. Pin that full SHA in the instance. The `main` branch remains a changing source branch and must not be used as an active stable pin.
 
 Read `instructions/core.md` and `docs/format.md` at that exact commit. Do not put a branch name or abbreviated SHA in the instance pin.
 

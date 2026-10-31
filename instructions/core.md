@@ -22,7 +22,7 @@ Git is mandatory. The baseline is an owner-controlled local Git repository conta
 
 ### Updating the engine safely
 
-- Treat `main` as a changing pilot/source branch, not as an active stable pin. The active engine is the exact full commit SHA named in both `core.json` and the configured entry.
+- Treat `main` as a changing source branch, not as an active stable pin. The active engine is the exact full commit SHA named in both `core.json` and the configured entry.
 - A Git fetch or sync may obtain new commits/tags but does not authorize changing that pin. Use a published, owner-selected release tag; verify its full commit SHA and read its compatibility and migration notes.
 - Before changing a pin, make an independent backup and try the candidate against a disposable copy of the private instance. Never run an undeclared or untested data migration.
 - Change `core.json` and the interface entry together to the same full SHA only after owner authorization. Commit and read back the private configuration. Keep the previous pin for rollback.
