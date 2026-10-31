@@ -68,6 +68,12 @@ GitHub is the first supported access route in this pilot. Git itself is the hist
 
 The product profile contract and development coordination live in [Systemator Development](https://github.com/01Systemator/Systemator/blob/main/docs/systemator-core-contract.md). Work and Extended add capabilities separately. This repository is the shared Core source; a user's private repository is an instance of it.
 
+## Find saved context
+
+Ask for a record by its ID/path or describe what you want to recall. The interface searches your private instance on its configured data branch, reads matching cards and returns their source. It checks for an existing record before creating another one.
+
+A limited or stale search result does not prove absence. If the adapter cannot inspect the full relevant inventory, the interface must say what it searched and what remains unchecked. Newly saved records are verified by direct reads, not by waiting for a search index. See [Finding and reusing context](instructions/core.md#finding-and-reusing-context).
+
 ## License
 
 Copyright (c) 2026 ASystemator. The shared Core source in this repository, including its instructions and data-format documentation, is available under the [MIT License](LICENSE) (SPDX: `MIT`).
