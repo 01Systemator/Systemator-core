@@ -15,6 +15,14 @@ The entry instruction must name:
 - the authorized way to read and commit Git files, with access to your private repository;
 - the rule that personal records live only in that private repository's `context/`, with a current-blob check before editing and a read-back after committing.
 
+### Instance identity, voluntary registration and updates
+
+Every instance has a stable `instance_id` in its private repository's `core.json`. This ID identifies the concrete Systemator instance that is giving feedback, requesting support or receiving compatibility information. Keep it unchanged across moves, reinstalls, backups and restores; a new independent instance receives a new ID.
+
+Registration in the Systemator registry is voluntary. An unregistered instance may use and modify the open-source Core locally under the MIT License, but it is not connected to the shared registry, instance-aware feedback channel, compatibility notices or the Systemator update service. To receive those services, the owner must create or obtain a stable `instance_id`, register the instance through the accepted registration route, and provide that ID when sending feedback or requesting updates. The registry cannot automatically know about an instance that its owner never registers or contacts.
+
+The same identity and update contract is intended for Core, Work, Extended and future Systemator modules. A module may have its own version and compatibility rules, but it must use the owning instance's stable identity rather than inventing a parallel identity scheme.
+
 ### Example: ChatGPT Project with the connected GitHub plugin
 
 Paste the following into the **Project instructions** after replacing the placeholders. This is an example for ChatGPT, not a requirement to use ChatGPT or GitHub in every Core installation.
