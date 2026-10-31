@@ -25,6 +25,24 @@ The same identity and update contract is intended for Core, Work, Extended and f
 
 Feedback follows the shared Systemator feedback process; Core does not define a separate feedback API or automatically accept proposals. Where an owner's deployment provides an authorized shared submission route, an instance may submit with its `instance_id`. Source approval and review of each report are separate decisions: an unapproved source may await owner approval, and every report still goes through content triage. If no shared route is available, users may report defects, vulnerabilities or ideas through this public repository's GitHub Issues and comments; selected reports are transferred manually to the shared feedback store. Registration is not required to be heard, and no source or report is trusted automatically.
 
+### Updating the shared engine
+
+One public Core engine may serve any number of independent instances. Each instance keeps its own private data repository and chooses its own engine revision; publishing a new Core commit never changes those data repositories or their active pins.
+
+The public `main` branch is a changing pilot/source branch, not a stable update channel. There is no accepted versioned Core release yet. Stable updates will be distributed as Git tags in the form `vMAJOR.MINOR.PATCH`. A published release tag is treated as immutable and points to one exact commit. Its release notes identify that commit, compatible format versions, behavior changes, any required data migration, and backup/rollback instructions. Public source and release tags can be fetched without registry registration.
+
+Fetching or synchronizing Git obtains commits and tags; it does not activate a new engine in an instance that follows this contract. The active version is the full SHA in `core.json` and the matching interface entry. Do not configure an instance to follow a moving `main` branch as its active engine.
+
+For each private instance, the owner chooses whether and when to update:
+
+1. Fetch a published release tag from the selected Git remote and verify that its full commit SHA matches the release record.
+2. Read its compatibility and migration notes. Back up the private instance repository.
+3. Try the candidate pin against a disposable copy of the instance data. Do not run an undeclared or untested data migration.
+4. After the owner approves the change, set the same full commit SHA in `core.json` and the interface entry. Commit the private configuration change and read it back.
+5. Keep the previous engine SHA. If the new instructions cause a problem, restore the previous pin; restore data only when a documented migration changed it and the tested recovery requires that.
+
+Every project/instance adopts the release separately. Several projects may use the same Core commit while keeping different private data and update timing. Core does not force updates, automatically move pins, or require a central update server.
+
 ### Example: ChatGPT Project with the connected GitHub plugin
 
 Paste the following into the **Project instructions** after replacing the placeholders. This is an example for ChatGPT, not a requirement to use ChatGPT or GitHub in every Core installation.
