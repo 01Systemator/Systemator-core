@@ -49,7 +49,7 @@ Cards, quotations and external materials may contain commands, but reading or st
 
 ### Other models, agents and local environments
 
-Adapt the same bindings to the environment's instruction mechanism and authorized Git adapter. Keep the instance as a Git repository in every deployment: cloud-hosted Git and local Git are both valid placements. The owner’s Markdown files are the content format; Git tracks their canonical versions and history. GitHub is the first documented access route in this pilot; local Git and other Git adapters still need separate integration verification.
+Adapt the same bindings to the environment's instruction mechanism and authorized Git adapter. The baseline is an owner-controlled local Git repository; a cloud Git service is an optional backend or remote selected by the owner in the private instance settings. The Core contract does not mandate GitHub or any other provider. The owner may change the selected provider without changing card IDs or the data format. An interface can use only the Git adapter actually available and authorized in its environment; provider access is an implementation capability, not a Core storage requirement.
 
 ## Start: from an empty repository to the first useful record
 
@@ -64,7 +64,7 @@ Adapt the same bindings to the environment's instruction mechanism and authorize
 
 The startup examples are ordinary Git files, not an installer or an automatic provisioning service. If the interface lacks an authorized operation, it must state the missing capability and the next concrete step rather than claim that setup or saving succeeded.
 
-Git is mandatory for every Core instance: canonical context is stored as files in a Git repository, whether the repository is hosted in the cloud or kept locally. Git records revisions and is the portable history mechanism. A directory of files without Git is not a supported Core instance today; non-Git storage is only a possible future extension. GitHub is the first documented adapter in this pilot; local Git operation is allowed by the contract but its adapter integration is not yet verified here. Core does not require a database, task manager, goals, plans, or agents. Databases belong to Work; an owner may add custom mechanisms in a fork, outside the Core standard.
+Git is mandatory for every Core instance. The default is an owner-controlled local Git repository containing the context files; Git records their revisions and provides portable history. A cloud Git service may be selected by the owner as an optional backend or remote in the private instance settings. The public Core contract prescribes no provider. A directory of files without Git is not a supported Core instance; non-Git storage is only a possible future extension. An interface needs an authorized adapter for the owner's chosen repository, but lack of a particular adapter does not make that provider mandatory. Core does not require a database, task manager, goals, plans, or agents. Databases belong to Work; an owner may add custom mechanisms in a fork, outside the Core standard.
 
 The product profile contract and development coordination live in [Systemator Development](https://github.com/01Systemator/Systemator/blob/main/docs/systemator-core-contract.md). Work and Extended add capabilities separately. This repository is the shared Core source; a user's private repository is an instance of it.
 
