@@ -71,6 +71,8 @@ Adapt the same bindings to the environment's instruction mechanism and authorize
 
 ## Start: from an empty repository to the first useful record
 
+There are two ways to follow this setup: use an AI interface with an authorized Git adapter and the copy-ready entry instruction above, or create the private instance yourself using [the manual local Git guide](docs/manual-setup.md). Both routes use the same Core format and verify committed files by reading them back. Neither route requires GitHub, registration, or a database.
+
 1. Create a dedicated, empty Git repository for your instance in a location you control; local Git is the default. Initialize it with a root `README.md` so the chosen data branch exists. Choose that branch explicitly as `instance_branch` (for example, `main`). Restrict access to the owner and authorized interface. If you choose a cloud Git service, configure its privacy and access in the private instance settings. Never put personal records or instance configuration in this public engine.
 2. Choose an exact engine commit containing the rules you will use. On this public repository's GitHub **Commits** page, open the desired commit and copy its full SHA; do not use a branch name or an abbreviated SHA as the pin. Read `instructions/core.md` and `docs/format.md` at that commit. The instance's `core.json` and interface entry must name the same SHA.
 3. Generate a fresh UUID for the instance using a standard UUID generator in your environment (for example, Python: `python -c "import uuid; print(uuid.uuid4())"`). Keep that ID for this instance across moves and restores. Use a newly generated UUID for each new card; never copy the illustrative IDs below into a real instance.
