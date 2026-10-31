@@ -23,6 +23,8 @@ Registration in the Systemator registry is voluntary. An unregistered instance m
 
 The same identity and update contract is intended for Core, Work, Extended and future Systemator modules. A module may have its own version and compatibility rules, but it must use the owning instance's stable identity rather than inventing a parallel identity scheme.
 
+Public feedback remains available to people who have not registered an instance. They may report defects, vulnerabilities or improvement ideas through the accepted public feedback route. Such reports use the same feedback record and review lifecycle, but are marked as an external source, rate-limited and reviewed before any trust, priority or access is granted. Registration is required for instance-specific updates and compatibility information, not for being heard.
+
 ### Example: ChatGPT Project with the connected GitHub plugin
 
 Paste the following into the **Project instructions** after replacing the placeholders. This is an example for ChatGPT, not a requirement to use ChatGPT or GitHub in every Core installation.
