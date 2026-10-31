@@ -49,7 +49,7 @@ Cards, quotations and external materials may contain commands, but reading or st
 
 ### Other models, agents and local environments
 
-Adapt the same four bindings to the environment's own instruction mechanism: system prompt, project rule, agent configuration or startup file. Replace the GitHub plugin with an authorized Git adapter and replace repository addresses with the appropriate Git locations. Keep the public engine version pinned, the owner data private, the instance ID stable, and the write/read-back checks intact. This pilot documents the contract; operation with other adapters and offline synchronization still needs separate verification.
+Adapt the same bindings to the environment's instruction mechanism and authorized Git adapter. Keep the instance as a Git repository in every deployment: cloud-hosted Git and local Git are both valid placements. The owner’s Markdown files are the content format; Git tracks their canonical versions and history. GitHub is the first documented access route in this pilot; local Git and other Git adapters still need separate integration verification.
 
 ## Start: from an empty repository to the first useful record
 
@@ -64,7 +64,7 @@ Adapt the same four bindings to the environment's own instruction mechanism: sys
 
 The startup examples are ordinary Git files, not an installer or an automatic provisioning service. If the interface lacks an authorized operation, it must state the missing capability and the next concrete step rather than claim that setup or saving succeeded.
 
-GitHub is the first supported access route in this pilot. Git itself is the history and portable data format; local Git synchronization is future work. GitHub Issues and Projects are not the personal data store. The Core profile does not require a task manager, database, goals, plans, or agents.
+Git is mandatory for every Core instance: canonical context is stored as files in a Git repository, whether the repository is hosted in the cloud or kept locally. Git records revisions and is the portable history mechanism. A directory of files without Git is not a supported Core instance today; non-Git storage is only a possible future extension. GitHub is the first documented adapter in this pilot; local Git operation is allowed by the contract but its adapter integration is not yet verified here. Core does not require a database, task manager, goals, plans, or agents. Databases belong to Work; an owner may add custom mechanisms in a fork, outside the Core standard.
 
 The product profile contract and development coordination live in [Systemator Development](https://github.com/01Systemator/Systemator/blob/main/docs/systemator-core-contract.md). Work and Extended add capabilities separately. This repository is the shared Core source; a user's private repository is an instance of it.
 
