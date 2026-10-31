@@ -1,69 +1,80 @@
 # Manual first setup (local Git)
 
-This route is for an owner who can use Git and a text editor. It creates a private Core instance without an AI installer, database, or cloud Git account. Use a machine and repository location you control. Keep all instance files private.
+This route creates a private Core instance using Git and a text editor. The repository can also be opened directly as an Obsidian vault. Keep all instance files private.
 
-## 1. Create the instance repository
-
-In Git Bash, macOS, or Linux, choose a new empty directory and run:
+## 1. Create the repository and standard layout
 
 ```sh
 mkdir my-systemator-core
 cd my-systemator-core
 git init -b main
+mkdir -p context/{inbox,facts,thoughts,decisions,intentions,tasks,references,assets,templates}
 python -c "import uuid; print(uuid.uuid4())"
 ```
 
-Keep the generated UUID as this instance's `instance_id`. If Python is unavailable, use another standard UUID v4 generator. Do not reuse an example UUID.
+Keep the generated UUID as this instance's `instance_id`. Create a new UUID for every record.
+
+Git does not preserve empty directories. Preserve the complete standard tree in the first commit:
+
+```sh
+touch context/{inbox,facts,thoughts,decisions,intentions,tasks,references,assets,templates}/.gitkeep
+```
+
+Remove a category's placeholder when its first real file is added. The names and meanings remain those in [the standard layout](storage-layout.md).
 
 ## 2. Choose and pin the engine
 
-Choose the accepted stable tag `v1.0.0` from `01Systemator/Systemator-core` and verify its exact full commit SHA. Pin that full SHA in the instance. The `main` branch remains a changing source branch and must not be used as an active stable pin.
+Choose the accepted stable tag `v1.0.0`, verify its exact full commit SHA and read `instructions/core.md`, `docs/format.md` and `docs/storage-layout.md` at that commit. Never use a moving branch or abbreviated SHA as the active pin.
 
-Read `instructions/core.md` and `docs/format.md` at that exact commit. Do not put a branch name or abbreviated SHA in the instance pin.
+## 3. Create instance files
 
-## 3. Create the instance files
+Create root `README.md` with the owner, scope, canonical branch and authorized access route. Do not put credentials in it.
 
-Create a root `README.md` that names the owner, scope, canonical branch (`main` here), and how you will access this private repository. Do not put credentials or secrets in it.
-
-Create a root `core.json` and replace every placeholder:
+Create root `core.json`:
 
 ```json
 {
   "format": "systemator-core-context",
-  "format_version": "<copy the supported version from docs/format.md at the pinned engine commit>",
+  "format_version": "1.0",
   "profile": "Core",
-  "instance_id": "<the UUID generated in step 1>",
-  "owner": "<your stable owner identifier>",
+  "instance_id": "<the UUID generated above>",
+  "owner": "<stable owner identifier>",
   "scope": "personal",
   "engine": {
     "repository": "01Systemator/Systemator-core",
-    "commit": "<the full engine commit SHA chosen in step 2>"
+    "commit": "<full engine commit SHA>"
   }
 }
 ```
 
-Create `context/README.md` with a short note such as: `Owner context cards live here; this file is not a context card.`
+Create `context/README.md` as a human navigation note. It is not a canonical record. Copy the record header from `docs/format.md` into `context/templates/record.md`; templates and inbox material are not canonical records.
 
-## 4. Add your first real record
+## 4. Create the first real record
 
-Create `context/first-record.md` for one fact, decision, intention, thought, or reference you actually want to preserve. Generate a second, fresh UUID for this card (for example, run the Python command from step 1 again); it must differ from the instance ID. Use the real UTC timestamps, an accurate source, and the instance ID in `links`. Follow the card example in `docs/format.md` at your pinned engine commit, including the exact format fields and version it defines. Do not put passwords, tokens, or other secrets in a card. The filename is literal in the commands below; if you choose another name, replace it there too.
+Choose one real fact, thought, decision, intention, task or reference. Put it under the matching standard directory, generate a fresh record UUID and complete every required metadata field. The record `instance_id` must equal `core.json.instance_id`. Use real UTC timestamps and accurate provenance.
+
+For example, a decision belongs at `context/decisions/<readable-name>.md`. The filename is convenient for people; the UUID is the identity.
 
 ## 5. Commit and verify
 
-Review the files to make sure the owner data is private and `core.json` contains the right UUID and full engine SHA. Then commit and read the committed copies back:
-
 ```sh
-git add README.md core.json context/README.md context/first-record.md
+git add README.md core.json context/
 git commit -m "Initialize private Systemator Core instance"
 git status --short
 git show HEAD:core.json
-git show HEAD:context/first-record.md
+git show HEAD:context/decisions/<readable-name>.md
 ```
 
-If Git reports that your author identity is not configured, set a repository-local identity and retry the commit, for example `git config user.name "Your Name"` and `git config user.email "you@example.com"`. These identify the commit author; they are not repository credentials. Check that `git status --short` is empty and the output of both `git show` commands contains the intended values and record. This confirms the files are committed in this local repository; it does not prove that an AI interface is connected or that a backup can be restored.
+Replace the example record path with the path you created. Confirm that `git status --short` is empty and both committed files contain the intended values. This proves local persistence, not remote backup or restore.
 
-## 6. Connect an AI interface when ready
+## 6. Open in Obsidian when desired
 
-To use an AI, configure its project or entry instructions with the private repository, canonical branch, exact engine commit, and the authorized Git adapter available in that environment. The entry must explicitly say what the AI may read and write. Use the copy-ready ChatGPT example in the main README as a starting point, adapting it to the actual interface and adapter. Confirm access by asking the interface to read `README.md`, `core.json`, and the first card from the explicit branch. Do not claim connection or persistence until the interface actually reads the files back.
+Open the repository root as an Obsidian vault. YAML metadata appears as note properties. Obsidian settings and plugins are optional and are not part of the portable Core format.
 
-Git is required by the Core contract. A local repository is sufficient. GitHub and other cloud Git services are optional remotes selected by the owner. Core does not require registration, a database, or an automatic updater.
+Do not convert UUID relations into editor-only links. You may add ordinary Markdown links for navigation while keeping canonical IDs in metadata.
+
+## 7. Connect an AI interface
+
+Configure the interface with the private repository, explicit `instance_branch`, exact engine commit and an authorized Git adapter. Ask it to read `README.md`, `core.json` and the first record from the explicit branch. Do not claim connection or persistence until those reads succeed.
+
+Git is required by the Core contract. Local Git is sufficient; GitHub and other cloud providers are optional remotes. Core does not require registration, a database or an automatic updater.
