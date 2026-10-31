@@ -27,7 +27,7 @@ Keep `instance_id` unchanged across moves, renames, reinstalls, backups, and res
 
 The interface entry explicitly names the private repository and its `instance_branch` (canonical data branch). Read `core.json` and canonical cards from that branch, with an explicit ref. The engine commit identifies the public rules and format, not the private data branch. This binding is interface configuration, not a new field in `core.json`; the `0.1-draft` data schema is unchanged. Candidate PR branches contain proposed changes until an authorized merge into `instance_branch` and independent read-back there. See [the interface instructions](../instructions/core.md) for write and verification rules.
 
-The private instance must be a Git repository, hosted or local. Context files without Git version control are not a supported Core storage mode. Git history preserves committed revisions during ordinary operation; repository backup and recovery remain the owner's responsibility. Core defines no database storage.
+The private instance must be a Git repository. The baseline is an owner-controlled local repository; the owner may select a cloud Git service as an optional backend or remote in private instance settings. The public Core contract does not mandate a hosting provider. Changing that private provider choice does not change card IDs or the data format. Context files without Git version control are not a supported Core storage mode. Git history preserves committed revisions during ordinary operation; repository backup and recovery remain the owner's responsibility. Core defines no database storage.
 
 ## Context cards
 
