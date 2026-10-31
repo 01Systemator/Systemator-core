@@ -2,7 +2,7 @@
 
 Systemator Core is a minimal, Git-backed space for an owner's persistent context. It stores addressable Markdown records and their links, lets the owner find them again, and preserves change history through Git. A ChatGPT project may be one interface to this space. The owner keeps their data in a separate repository.
 
-This repository contains the shared instructions and data format for the **first Git-first pilot**. It contains no owner's records, credentials, or instance identity. A public repository alone is not an accepted release. Systemator Core is open source under the [MIT License](LICENSE). Independent acceptance and a versioned release remain pending.
+This repository contains the shared instructions and data format for **Systemator Core v1.0.0**, the first stable public release. It contains no owner's records, credentials, or instance identity. Systemator Core is open source under the [MIT License](LICENSE). The immutable release tag identifies the accepted engine commit; each private instance pins that exact commit separately.
 
 ## Connect an AI interface
 
@@ -29,7 +29,7 @@ Feedback follows the shared Systemator feedback process; Core does not define a 
 
 One public Core engine may serve any number of independent instances. Each instance keeps its own private data repository and chooses its own engine revision; publishing a new Core commit never changes those data repositories or their active pins.
 
-The public `main` branch is a changing pilot/source branch, not a stable update channel. There is no accepted versioned Core release yet. Stable updates will be distributed as Git tags in the form `vMAJOR.MINOR.PATCH`. A published release tag is treated as immutable and points to one exact commit. Its release notes identify that commit, compatible format versions, behavior changes, any required data migration, and backup/rollback instructions. Public source and release tags can be fetched without registry registration.
+The public `main` branch remains the changing source branch, not a stable update channel. The first accepted stable release is `v1.0.0`. Stable updates are distributed as Git tags in the form `vMAJOR.MINOR.PATCH`. A published release tag is immutable and points to one exact commit. Its release notes identify that commit, compatible format versions, behavior changes, any required data migration, and backup/rollback instructions. Public source and release tags can be fetched without registry registration.
 
 Fetching or synchronizing Git obtains commits and tags; it does not activate a new engine in an instance that follows this contract. The active version is the full SHA in `core.json` and the matching interface entry. Do not configure an instance to follow a moving `main` branch as its active engine.
 
