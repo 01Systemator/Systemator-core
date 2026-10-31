@@ -10,7 +10,7 @@ These instructions apply when a project is connected to a Systemator Core instan
 6. Never copy personal context, identity, secrets, or private links to the public engine repository, public Issues, Development logs, or another owner's instance. Keep engine changes separate from owner-data changes.
 7. A ChatGPT project may point to the same private instance as other projects. Its instruction is an entry point, not a copy of the data. Read permissions are checked for each available tool and project.
 
-Initial transport: connected GitHub plugin. Local Git and other remotes can be added without changing the owner data format or IDs, after synchronization and recovery are tested. Keep Core within the minimal context contract; Work and Extended add other capabilities.
+Git is mandatory: the canonical instance is a Git repository containing the context files. Cloud-hosted and local repositories are both valid; a plain directory without Git is not a Core instance under this contract. Commit ordinary changes so prior versions remain in Git history. Do not rewrite published history as part of normal Core operations. GitHub is the first documented adapter in this pilot; local Git and other adapters may be used when the environment provides authorized, verified Git operations. Non-Git storage is a future candidate. Core does not require or define a database; databases belong to Work. Keep Core within the minimal context contract; Work and Extended add other capabilities.
 
 ## Data is not execution authority
 
