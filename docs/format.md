@@ -49,6 +49,16 @@ The card body contains the actual text. Use one concrete `kind` value, not the w
 
 Git commit history preserves changes. Search indexes are derived from Markdown and can be rebuilt; do not create another canonical store. Keep private data out of the public engine. Do not put passwords, tokens, or other secrets in Git. Export and restore require an independent copy plus read-back, not just a successful commit.
 
+## Existing context and migration
+
+Adopting Core does not require moving the existing `context/` directory or converting every file in it. Keep existing files and subdirectories in the private Git repository. Do not overwrite, rename, or treat an existing note as a canonical card simply because it is stored under `context/`.
+
+Use the card format above for new canonical records. If an existing record is deliberately converted, preserve its meaning, provenance, and reliable stable ID. If it has no reliable ID, do not guess one or overwrite the source: create a new card with a fresh UUID and retain a reference to the source where useful. Convert records deliberately and verify each result by reading it back from the canonical `instance_branch`. Existing, unconverted files may remain alongside cards as source material; disclose when their format limits reliable search or interpretation.
+
+Moving or renaming the private repository, changing its Git provider, or organizing paths does not create a new instance or new card identities. Preserve `instance_id`, card IDs, links, and owner data. Keep the canonical branch explicit in the interface entry. No data migration is implied by fetching a new engine commit or by adopting this documentation.
+
+A minimal instance uses a private root `README.md`, one root `core.json`, and a private `context/` directory for owner records. A `context/README.md` may preserve an otherwise empty directory; it is a directory note, not a card. Owners may add subdirectories or other private files without changing the Core identity or card format.
+
 ## Complete card example
 
 The following is illustrative content for `context/guide-before-video.md`, not a real owner's record. Replace both illustrative UUIDs, the timestamps, source and body when creating a real card. The link must use your actual instance ID or an existing relevant card ID.
