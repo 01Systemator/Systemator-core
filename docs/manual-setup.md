@@ -46,21 +46,21 @@ Create `context/README.md` with a short note such as: `Owner context cards live 
 
 ## 4. Add your first real record
 
-Create `context/<descriptive-name>.md` for one fact, decision, intention, thought, or reference you actually want to preserve. Use a new UUID for the card, the real UTC timestamps, an accurate source, and the instance ID in `links`. Follow the card example in `docs/format.md` at your pinned engine commit. Do not put passwords, tokens, or other secrets in a card.
+Create `context/first-record.md` for one fact, decision, intention, thought, or reference you actually want to preserve. Use a new UUID for the card, the real UTC timestamps, an accurate source, and the instance ID in `links`. Follow the card example in `docs/format.md` at your pinned engine commit. Do not put passwords, tokens, or other secrets in a card. The filename is literal in the commands below; if you choose another name, replace it there too.
 
 ## 5. Commit and verify
 
 Review the files to make sure the owner data is private and `core.json` contains the right UUID and full engine SHA. Then commit and read the committed copies back:
 
 ```sh
-git add README.md core.json context/README.md context/<descriptive-name>.md
+git add README.md core.json context/README.md context/first-record.md
 git commit -m "Initialize private Systemator Core instance"
 git status --short
 git show HEAD:core.json
-git show HEAD:context/<descriptive-name>.md
+git show HEAD:context/first-record.md
 ```
 
-Check that `git status --short` is empty and the output of both `git show` commands contains the intended values and record. This confirms the files are committed in this local repository; it does not prove that an AI interface is connected or that a backup can be restored.
+If Git reports that your author identity is not configured, set a repository-local `user.name` and `user.email`, then retry the commit. Check that `git status --short` is empty and the output of both `git show` commands contains the intended values and record. This confirms the files are committed in this local repository; it does not prove that an AI interface is connected or that a backup can be restored.
 
 ## 6. Connect an AI interface when ready
 
