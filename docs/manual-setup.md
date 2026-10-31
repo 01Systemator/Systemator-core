@@ -14,7 +14,13 @@ python -c "import uuid; print(uuid.uuid4())"
 
 Keep the generated UUID as this instance's `instance_id`. Create a new UUID for every record.
 
-Git does not preserve empty directories. Until a category has content, add an empty `.gitkeep` to it or create the category only when its first file is committed. The names and meanings remain those in [the standard layout](storage-layout.md).
+Git does not preserve empty directories. Preserve the complete standard tree in the first commit:
+
+```sh
+touch context/{inbox,facts,thoughts,decisions,intentions,tasks,references,assets,templates}/.gitkeep
+```
+
+Remove a category's placeholder when its first real file is added. The names and meanings remain those in [the standard layout](storage-layout.md).
 
 ## 2. Choose and pin the engine
 
