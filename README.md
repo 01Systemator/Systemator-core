@@ -2,7 +2,7 @@
 
 Systemator Core is a minimal, Git-backed space for an owner's persistent context. It stores addressable Markdown records and their links, lets the owner find them again, and preserves change history through Git. A ChatGPT project may be one interface to this space. The owner keeps their data in a separate repository.
 
-This repository contains the shared instructions and data format for the **first Git-first pilot**. It contains no owner's records, credentials, or instance identity. A public repository alone is not an accepted release. The open-source license, independent acceptance, and versioned release are pending in Systemator Development tasks #10, #16, and #17.
+This repository contains the shared instructions and data format for the **first Git-first pilot**. It contains no owner's records, credentials, or instance identity. A public repository alone is not an accepted release. Systemator Core is open source under the [MIT License](LICENSE). Independent acceptance and a versioned release remain pending.
 
 ## Connect an AI interface
 
@@ -38,3 +38,11 @@ Adapt the same four bindings to the environment's own instruction mechanism: sys
 GitHub is the first supported access route in this pilot. Git itself is the history and portable data format; local Git synchronization is future work. GitHub Issues and Projects are not the personal data store. The Core profile does not require a task manager, database, goals, plans, or agents.
 
 The product profile contract and development coordination live in [Systemator Development](https://github.com/01Systemator/Systemator/blob/main/docs/systemator-core-contract.md). Work and Extended add capabilities separately. This repository is the shared Core source; a user's private repository is an instance of it.
+
+## License
+
+Copyright (c) 2026 ASystemator. The shared Core source in this repository, including its instructions and data-format documentation, is available under the [MIT License](LICENSE) (SPDX: `MIT`).
+
+You may use, copy, modify, and redistribute it, including commercially and as part of proprietary products, provided you retain the copyright and license notices as required by MIT. The software is provided without warranty; see the full license for its terms.
+
+This license covers this repository's shared materials. It does not grant rights to an owner's private context or instance data. Work and Extended are separate products; their licensing is defined separately.
