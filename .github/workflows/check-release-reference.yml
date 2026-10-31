@@ -1,0 +1,19 @@
+name: Check release reference
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  release-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure general README does not pin a historical release
+        run: |
+          if grep -En 'first stable (public )?release is `v[0-9]|Systemator Core v[0-9]+\.[0-9]+\.[0-9]+' README.md; then
+            echo 'README.md must not hard-code a current or historical Core engine version. Keep exact versions in release-specific records and link the latest release.' >&2
+            exit 1
+          fi
+          grep -Fq 'https://github.com/01Systemator/Systemator-core/releases/latest' README.md
