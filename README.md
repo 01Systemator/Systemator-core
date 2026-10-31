@@ -23,7 +23,7 @@ Registration in the Systemator registry is voluntary. An unregistered instance m
 
 The same identity and update contract is intended for Core, Work, Extended and future Systemator modules. A module may have its own version and compatibility rules, but it must use the owning instance's stable identity rather than inventing a parallel identity scheme.
 
-Public feedback remains available to people who have not registered an instance. They may report defects, vulnerabilities or improvement ideas through the accepted public feedback route. Such reports use the same feedback record and review lifecycle, but are marked by their source and reviewed before any decision. No source is trusted automatically: an `instance_id`, GitHub account or other service account identifies origin, but does not prove that the sender is trustworthy or protect against automated spam. Registration is required for instance-specific updates and compatibility information, not for being heard.
+Public feedback remains available to people who have not registered an instance. At the current stage they may report defects, vulnerabilities or improvement ideas through public GitHub Issues and comments. The owner decides manually whether to transfer a report into the canonical feedback store. No source is trusted automatically: an `instance_id`, GitHub account or other service account identifies origin, but does not prove that the sender is trustworthy or protect against automated spam. A specific instance may receive a separate manual owner approval for the internal feedback route. Registration is required for instance-specific updates and compatibility information, not for being heard.
 
 ### Example: ChatGPT Project with the connected GitHub plugin
 
