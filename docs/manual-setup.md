@@ -1,6 +1,6 @@
-# Manual first setup (local Git)\n\n> This is the alternative manual route. The recommended route is to use an AI interface with an authorized Git adapter and let it guide the setup while verifying the committed files.
+# Manual first setup (local Git)
 
-
+> This is the alternative manual route. The recommended route is to use an AI interface with an authorized Git adapter and let it guide the setup while verifying the committed files.
 
 This route creates a private Core instance using Git and a text editor. The repository can also be opened directly as an Obsidian vault. Keep all instance files private.
 
