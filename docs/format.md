@@ -23,6 +23,10 @@ The **private** repository contains exactly one root `core.json`, for example:
 
 Keep `instance_id` unchanged across moves, renames, reinstalls, backups, and restores. A new independent instance receives a different ID. The owner field identifies whose data this is; its relationship with a central registry is reconciled separately, without copying another person's registered IDs. The engine commit pins the instruction and format used by this instance. Changing it is an explicit update, with compatibility and recovery checked first.
 
+## Repository binding
+
+The interface entry explicitly names the private repository and its `instance_branch` (canonical data branch). Read `core.json` and canonical cards from that branch, with an explicit ref. The engine commit identifies the public rules and format, not the private data branch. This binding is interface configuration, not a new field in `core.json`; the `0.1-draft` data schema is unchanged. Candidate PR branches contain proposed changes until an authorized merge into `instance_branch` and independent read-back there. See [the interface instructions](../instructions/core.md) for write and verification rules.
+
 ## Context cards
 
 Canonical owner records are UTF-8 Markdown files in `context/`. Each starts with metadata:
